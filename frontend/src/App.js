@@ -2,12 +2,12 @@ import StudentForm from "./components/StudentForm";
 import StudentList from "./components/StudentList";
 import {useState, useEffect} from 'react';
 import axios from 'axios';
-
+import { API } from "./api";
 export default function App(){
   const [students, setStudents] = useState([]);
 
   const fetchStudents = async () => {
-    const res = await axios.get('http://localhost:5000/students');
+    const res = await axios.get(`${API}/students`);
     setStudents(res.data);
   };
 
